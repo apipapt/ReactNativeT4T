@@ -11,3 +11,86 @@ const colors = {
   black: '#000000',
 };
 export default colors;
+
+export const color = {
+  primary: {
+    blue: '#30A8C8',
+    medium: '#3A4FA2',
+    mid: '#5983EA',
+    light: '#70CCDB',
+    opacity: '#EFF6FF',
+    background: '#F3F5FA',
+  },
+  secondary: {
+    yellow: '#EDB36A',
+    medium: '#DC950B',
+    mid: '#FDE18B',
+    light: '#FFF7E0',
+  },
+  general: {
+    black: '#424242',
+    dark: '#1F2937',
+    mid: '#9DA2AD',
+    light: '#E6E7EB',
+  },
+  gray: {
+    gray: '#616161',
+    dark: '#354963',
+    mid: '#D9D9D9',
+    light: '#e9e9ed',
+    font: '#677E9B',
+    placeholder: '#868686',
+  },
+  alert: {
+    dangerBorder: '#ce0007',
+    dangerColor: '#ffebed',
+    primaryBorder: '#00b4d7',
+    primaryColor: '#e1f5fe',
+  },
+  white: '#FFFFFF',
+  green: '#21B573',
+  red: '#DB634A',
+  black: '#000000',
+  pink: '#C6256B',
+  orange: '#F39620',
+  splash: '#157A8C',
+  tnPrimary: {
+    lima: '#0097C4',
+    primary500: '#0097c4',
+    primary50: '#F2F8FA',
+  },
+  tnInfo: {
+    info50: '#D8EFFE',
+  },
+  tnGray: {
+    gray50: '#F0F5F9',
+    gray100: '#EBEBEB',
+    gray300: '#CDCDCD',
+    gray500: '#9B9B9B',
+    gray600: '#818181',
+    tiga: '#F2F7F9',
+    empat: '#BCBCBC',
+    enam: '#818181',
+    text: '#9B9B9B',
+    bgCommant: '#F5F5F5',
+    bg: '#F9F9F9',
+  },
+  tnSecondary: {
+    limaPulih: '#FFE9D3',
+    secondary50: '#FFE9D3',
+    secondary400: '#FFA449',
+    secondary500: '#FF9225',
+  },
+  tnBlack: {
+    neutral: '#1D1B1B',
+    black50: 'rgba(0, 0, 0, 0.75)',
+  },
+  tnRed: {
+    red100: '#FEDFDE',
+    red500: '#F8615A',
+  },
+  tnGreen: {
+    green50: '#E6F9F0',
+    green500: '#74C98F',
+  },
+};

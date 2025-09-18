@@ -10,15 +10,24 @@ import {
   ActivityIndicator,
   Dimensions,
   Image,
+  ScrollView,
 } from 'react-native';
 import fetcher, {getUser} from '../helpers/fetcher';
 import tw from 'twrnc';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import colors from '../styles/color';
 import {formatDateId} from '../helpers/formatDate';
+import {Button} from '../helpers/button';
 
 const {width} = Dimensions.get('window');
 
+const MENU_ITEMS = {
+  APPLY: 'Data Grower',
+  DETAIL: 'Area Kerja',
+  TREEE: 'Pohon',
+  LOCATION: 'Lahan',
+  FAQ: 'FAQ Grower',
+};
 const Home = ({onLogout}: {onLogout: () => void}) => {
   const [posts, setPosts] = useState([]);
   const [selectedPostId, setSelectedPostId] = useState(null);
@@ -303,6 +312,24 @@ const Home = ({onLogout}: {onLogout: () => void}) => {
     </View>
   );
 
+  const [menu, setMenu] = useState(MENU_ITEMS.APPLY);
+
+  const renderMenuButton = (title: string) => (
+    <Button
+      title={title}
+      style={{
+        ...styles.menuButton,
+        borderBottomColor: menu === title ? colors.green : 'transparent',
+      }}
+      textStyle={{
+        ...styles.menuButtonText,
+        color: colors.green,
+        fontWeight: menu === title ? '500' : '300',
+      }}
+      onPress={() => setMenu(title)}
+    />
+  );
+
   const renderPostDetail = () => (
     <View style={styles.detailContainer}>
       <TouchableOpacity
@@ -310,7 +337,7 @@ const Home = ({onLogout}: {onLogout: () => void}) => {
           setSelectedPostId(null);
           fetchPosts();
         }}
-        style={[styles.backButton, tw`h-10`]}>
+        style={[styles.backButton, tw`h-10 pt-5`]}>
         <Text style={[styles.backButtonText, tw`my-auto`]}>Detail Grower</Text>
       </TouchableOpacity>
       {isLoading ? (
@@ -335,7 +362,18 @@ const Home = ({onLogout}: {onLogout: () => void}) => {
               </View>
             </View>
           </View>
-          <View style={tw`m-3 bg-white rounded-xl shadow-md mt-15`}>
+
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            style={tw`mt-10`}>
+            {renderMenuButton(MENU_ITEMS.APPLY)}
+            {renderMenuButton(MENU_ITEMS.DETAIL)}
+            {renderMenuButton(MENU_ITEMS.TREEE)}
+            {renderMenuButton(MENU_ITEMS.LOCATION)}
+            {renderMenuButton(MENU_ITEMS.FAQ)}
+          </ScrollView>
+          <View style={tw`m-3 bg-white rounded-xl shadow-md`}>
             <View>
               <View
                 style={[
@@ -586,6 +624,19 @@ const styles = StyleSheet.create({
   safeArea: {
     flex: 1,
     backgroundColor: '#fff',
+  },
+  menuContainer: {
+    padding: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
+  menuButton: {
+    backgroundColor: 'transparent',
+    borderBottomWidth: 2,
+    elevation: 0,
+  },
+  menuButtonText: {
+    fontSize: 14,
   },
   backgroundImage: {
     height: 100,
